@@ -7,8 +7,8 @@ function ListedBook() {
   const [displayData, setDisplayData] = useState([])
 
   useEffect(()=>{
-    const getData = JSON.parse(localStorage.getItem("books"));
-    const wishData = JSON.parse(localStorage.getItem("wish"));
+    const getData = JSON.parse(localStorage.getItem("books") ||' []') ;
+    const wishData = JSON.parse(localStorage.getItem("wish") ||' []');
 
     const value =getData;
     setDisplayData(value)

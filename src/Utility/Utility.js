@@ -6,7 +6,7 @@ export function capitalizeFirstLetter(string) {
 
 
 export const saveWishlist = (book)=>{
-    const wishData = JSON.parse(localStorage.getItem("wish")) || [] ;
+    const wishData = JSON.parse(localStorage.getItem("wish")|| '[] ') ;
         const findWishData = wishData.find(w=>w.id == book.id);
         if(findWishData){
             toast("This book has been read !");
