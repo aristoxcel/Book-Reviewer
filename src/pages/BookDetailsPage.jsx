@@ -1,17 +1,31 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { capitalizeFirstLetter, saveToLocalStorage, saveWishlist } from "../Utility/Utility";
+import { capitalizeFirstLetter,  saveWishlist } from "../Utility/Utility";
 import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css'; //j page e toast bosbe sei page er upore bosbe
+import { useState } from "react";
+import PagesToRead from "./PagesToRead";
 
 
 function BookDetailsPage() {
+    const [data, setData]=useState([])
 
     const books = useLoaderData();
     const {id}=useParams()
     const book = books.find(b=>b.id==id)
 
     const handleRead = ()=>{
-        saveToLocalStorage(book)
+        const saveData = JSON.parse(localStorage.getItem("books")) || [] ;
+        const findData = saveData.find(bk=>bk.id == book.id);
+        if(findData){
+            toast("This book already has been read !");
+        } else {
+            saveData.push(book);
+            localStorage.setItem("books", JSON.stringify(saveData));
+            toast("Saved as Read!");
+            console.log(saveData);
+            setData(saveData)
+        }
     }
 
     const handleWish= ()=>{
@@ -56,12 +70,13 @@ function BookDetailsPage() {
                     </tbody>
                 </table>
                 <div>
-                   <button onClick={handleRead} className="btn mr-4 ">Read</button>
+                   <button  onClick={handleRead} className="btn mr-4 ">Read</button>
                     <button onClick={handleWish} className="btn bg-sky-400 ">Wishlist</button>
 
                 </div>
             </div>
         </div>
+        <div className="hidden"><PagesToRead dataSet={data}></PagesToRead></div>
         <ToastContainer />
     </div>
   )
