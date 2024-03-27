@@ -1,9 +1,10 @@
 import {capitalizeFirstLetter}  from "../Utility/Utility";
 import { IoPeopleOutline } from "react-icons/io5";
 import { LuFileSpreadsheet } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 function ReadBookCard({book}) {
-    const {image, book_name, author, year_of_publishing, tags, rating, category, publisher, total_pages}=book;
+    const {id, image, book_name, author, year_of_publishing, tags, rating, category, publisher, total_pages}=book;
   return (
     <div className="container mx-auto">
         <div className="grid md:grid-cols-4  border rounded-2xl mb-5 p-4">
@@ -36,7 +37,7 @@ function ReadBookCard({book}) {
                 <div>
                     <button className="btn bg-blue-50 text-blue-500">Category {capitalizeFirstLetter(category)}</button>
                     <button className="btn bg-orange-50 text-orange-500">Rating {rating}</button>
-                    <button className="btn bg-green-500 text-white">View Details</button>
+                    <Link to={`/bookDetailsPage/${id}`}><button className="btn bg-green-500 text-white">View Details</button></Link>
                 </div>
             </div>
         </div>
