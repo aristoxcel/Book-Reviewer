@@ -1,4 +1,6 @@
 import {capitalizeFirstLetter}  from "../Utility/Utility";
+import { IoPeopleOutline } from "react-icons/io5";
+import { LuFileSpreadsheet } from "react-icons/lu";
 
 function ReadBookCard({book}) {
     const {image, book_name, author, year_of_publishing, tags, rating, category, publisher, total_pages}=book;
@@ -23,11 +25,11 @@ function ReadBookCard({book}) {
                 <div className="flex gap-3">
                     <div>
                         <img src="" alt="" />
-                        <p>Publisher: {publisher}</p>
+                        <p><IoPeopleOutline />Publisher: {publisher}</p>
                     </div>
                     <div>
                         <img src="" alt="" />
-                        <p>Page: {total_pages}</p>
+                        <p><LuFileSpreadsheet /> Page: {total_pages}</p>
                     </div>
                 </div>
                 <hr />

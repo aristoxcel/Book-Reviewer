@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import ReadBookCard from "../components/ReadBookCard";
 import { descendingData } from "../Utility/Utility";
+import { SlArrowDown } from "react-icons/sl";
+
 
 
 function ListedBook() {
@@ -38,14 +40,14 @@ const handleSortYear = ()=> {
   return (
     <div className="container mx-auto">
       <div className=" text-center space-y-4 mb-10">
-      <div className="h-16 bg-gray-200 flex items-center justify-center text-3xl font-bold">Books</div>
+      <div className="h-20 rounded-2xl bg-gray-100 flex items-center justify-center text-3xl font-bold">Books</div>
       <div>
         <details className="dropdown">
-        <summary className="m-1 btn">Sort By</summary>
+        <summary className="m-1 btn bg-green-500 text-white text-lg">Sort By   <SlArrowDown className="text-lg font-extrabold ml-2 mt-1"/></summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-          <li><a onClick={()=>handleSortRating()}>Rating   v</a></li>
-          <li><a onClick={()=>handleSortPages()}>Number of Pages</a><span>v</span></li>
-          <li><a onClick={()=>handleSortYear()}>Published Year   v</a></li>
+          <li><a onClick={()=>handleSortRating()}>Rating</a></li>
+          <li><a onClick={()=>handleSortPages()}>Number of Pages</a></li>
+          <li><a onClick={()=>handleSortYear()}>Published Year</a></li>
         </ul>
       </details>
       </div>
@@ -69,9 +71,7 @@ const handleSortYear = ()=> {
             }
           </div>
         </div>
-
-      </div>
-       
+      </div>    
     </div>
   )
 }
