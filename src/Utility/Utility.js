@@ -16,3 +16,10 @@ export const saveWishlist = (book)=>{
             toast("This book added in your Wishlist !");
         }
 } 
+
+export const descendingData = ()=>{
+    const getData = JSON.parse(localStorage.getItem("books") || '[]') ;
+  let desRating = [...getData]
+  desRating.sort((a,b)=>a.rating-b.rating).reverse();
+  return desRating
+}

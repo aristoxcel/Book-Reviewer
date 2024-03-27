@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import ReadBookCard from "../components/ReadBookCard";
+import { descendingData } from "../Utility/Utility";
 
 
 function ListedBook() {
-  const [bookData, setBookData] = useState([]);
   const [displayData, setDisplayData] = useState([])
+  const [bookData, setBookData] = useState([]);
+  
 
   useEffect(()=>{
     const getData = JSON.parse(localStorage.getItem("books") ||' []') ;
@@ -16,9 +18,21 @@ function ListedBook() {
   },[])
 
 
-
-const handleSortData = ()=> {
-  
+const handleSortRating = ()=> {
+  const desData = descendingData()
+  setDisplayData(desData)
+}
+const handleSortPages = ()=> {
+  const getData = JSON.parse(localStorage.getItem("books") || '[]') ;
+  let desRating = [...getData]
+  desRating.sort((a,b)=>a.total_pages-b.total_pages).reverse();
+  setDisplayData(desRating)
+}
+const handleSortYear = ()=> {
+  const getData = JSON.parse(localStorage.getItem("books") || '[]') ;
+  let desRating = [...getData]
+  desRating.sort((a,b)=>a.year_of_publishing-b.year_of_publishing).reverse();
+  setDisplayData(desRating)
 }
 
   return (
@@ -29,9 +43,9 @@ const handleSortData = ()=> {
         <details className="dropdown">
         <summary className="m-1 btn">Sort By</summary>
         <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-          <li><a onClick={()=>handleSortData()}>Rating</a></li>
-          <li><a>Number of Pages</a></li>
-          <li><a>Published Year</a></li>
+          <li><a onClick={()=>handleSortRating()}>Rating   v</a></li>
+          <li><a onClick={()=>handleSortPages()}>Number of Pages</a><span>v</span></li>
+          <li><a onClick={()=>handleSortYear()}>Published Year   v</a></li>
         </ul>
       </details>
       </div>

@@ -31,7 +31,7 @@ function Nav() {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn bg-lime-500 text-white font-semibold text-xl">Sign In</a>
+    <a className="btn bg-green-500 text-white font-semibold text-xl">Sign In</a>
     <a className="btn bg-info font-semibold text-white">Sign Up</a>
   </div>
 </div>
