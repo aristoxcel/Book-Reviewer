@@ -7,16 +7,21 @@ export function capitalizeFirstLetter(string) {
 
 export const saveWishlist = (book)=>{
     const wishData = JSON.parse(localStorage.getItem("wish")|| '[] ') ;
+    const readData = JSON.parse(localStorage.getItem("books")|| '[] ') ;
         const findWishData = wishData.find(w=>w.id == book.id);
-        if(findWishData){
+        const findReadData = readData.find(r=>r.id ==book.id)
+        if(findReadData){
             toast("This book has been read !");
+        } else {
+        if(findWishData){
+            toast("This book already added in your wishlist !");
         } else {
             wishData.push(book);
             localStorage.setItem("wish", JSON.stringify(wishData))
-            toast("This book added in your Wishlist !");
+            toast("This book saved in Wishlist !");
         }
 } 
-
+}
 export const descendingData = ()=>{
     const getData = JSON.parse(localStorage.getItem("books") || '[]') ;
   let desRating = [...getData]

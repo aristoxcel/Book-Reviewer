@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     element:<MainLayout></MainLayout>,
     errorElement:<ErrorPage></ErrorPage>,
     children:[
-      {path:'/', element:<Home></Home>,loader: () => fetch('books.json')},
+      {path:'/', element:<Home></Home>,loader: () => fetch('/books.json')},
       {path:'/listedBook',element:<ListedBook></ListedBook> },
       {path:'/pageToRead',element:<PagesToRead></PagesToRead>},
-      {path:'/bookDetailsPage/:id',element:<BookDetailsPage></BookDetailsPage>, loader: () => fetch('books.json')},
+      {path:'/bookDetailsPage/:id',element:<BookDetailsPage></BookDetailsPage>, loader: () => fetch('/books.json')},
     ]
   }
 ])

@@ -15,11 +15,11 @@ function BookDetailsPage() {
         const saveData = JSON.parse(localStorage.getItem("books") ||'[]') ;
         const findData = saveData.find(bk=>bk.id == book.id);
         if(findData){
-            toast("This book already has been read !");
+            toast.error("This book already has been read !");
         } else {
             saveData.push(book);
             localStorage.setItem("books", JSON.stringify(saveData));
-            toast("Saved as Read!");
+            toast.success("Saved as Read!");
         }
     }
 
