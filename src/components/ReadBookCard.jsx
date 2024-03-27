@@ -8,8 +8,8 @@ function ReadBookCard({book}) {
     const {id, image, book_name, author, year_of_publishing, tags, rating, category, publisher, total_pages}=book;
   return (
     <div className="container mx-auto">
-        <div className="grid md:grid-cols-4  border rounded-2xl mb-5 p-4">
-            <div className="col-span-1 "><img src={image} alt="" className="h-full rounded-2xl border"/></div>
+        <div className="grid md:grid-cols-4  border rounded-2xl mb-5 p-4 pb-0">
+            <div className="col-span-1 "><img src={image} alt="" className="h-3/4 rounded-2xl border"/></div>
             <div className="col-span-3 rounded-2xl space-y-4 ml-4">
                 <h1 className="playfair font-bold text-2xl">{book_name}</h1>
                 <h2 className="text-lg font-semibold text-gray-500">By : {author}</h2>
