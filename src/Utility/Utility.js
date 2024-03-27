@@ -11,14 +11,14 @@ export const saveWishlist = (book)=>{
         const findWishData = wishData.find(w=>w.id == book.id);
         const findReadData = readData.find(r=>r.id ==book.id)
         if(findReadData){
-            toast("This book has been read !");
+            toast.warning("This book has been read !");
         } else {
         if(findWishData){
-            toast("This book already added in your wishlist !");
+            toast.warning("This book already added in your wishlist !");
         } else {
             wishData.push(book);
             localStorage.setItem("wish", JSON.stringify(wishData))
-            toast("This book saved in Wishlist !");
+            toast.success("This book saved in Wishlist !");
         }
 } 
 }
