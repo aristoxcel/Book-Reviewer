@@ -7,7 +7,7 @@ function Nav() {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/listedBook'}>Listed Books</NavLink></li>
         <li><NavLink to={'/pageToRead'}>Pages to Read</NavLink></li>
-        <li><NavLink to={'/about'}>About us</NavLink></li>
+        <li><NavLink to={'/about'}>About Us</NavLink></li>
         <li><NavLink to={'/contact'}>Contact</NavLink></li>
     </>
   return (
@@ -23,7 +23,7 @@ function Nav() {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-3xl font-extrabold">Book Reviewer</a>
+    <a className="btn btn-ghost text-2xl md:text-3xl font-semibold md:font-extrabold">Bookish</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 space-x-1 text-lg font-semibold">

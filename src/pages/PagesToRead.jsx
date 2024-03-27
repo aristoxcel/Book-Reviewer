@@ -22,10 +22,11 @@ const TriangleBar = (props) => {
 };
 
   return (
-    <div className='container mx-auto'>
+    <div>
+      <div className='container flex justify-center mx-auto'>
 <BarChart
-      width={700}
-      height={300}
+      width={1000}
+      height={600}
       data={data}
       margin={{
         top: 50,
@@ -43,8 +44,11 @@ const TriangleBar = (props) => {
         ))}
       </Bar>
     </BarChart>
-      
     </div>
+    
+    </div>
+    
+    
   )
 }
 

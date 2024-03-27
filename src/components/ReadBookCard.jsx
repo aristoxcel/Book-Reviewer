@@ -9,11 +9,11 @@ function ReadBookCard({book}) {
   return (
     <div className="container mx-auto">
         <div className="grid md:grid-cols-4  border rounded-2xl mb-5 p-4 pb-0">
-            <div className="col-span-1 "><img src={image} alt="" className="h-3/4 rounded-2xl border"/></div>
+            <div className="col-span-1 "><img src={image} alt="" className="h-[250px] rounded-2xl border"/></div>
             <div className="col-span-3 rounded-2xl space-y-4 ml-4">
                 <h1 className="playfair font-bold text-2xl">{book_name}</h1>
                 <h2 className="text-lg font-semibold text-gray-500">By : {author}</h2>
-                <div className="flex gap-4 justify-start items-center">
+                <div className="flex gap-4 justify-start items-start flex-col lg:flex-row lg:items-center">
                     <div className="flex justify-evenly items-center gap-3">
                         <h2 className="text-base font-bold">Tag</h2>
                         <button className="btn  bg-green-50 text-[#23BE0A] rounded-[30px] h-1 px-4 font-medium text-base">#{tags[0]}</button>
@@ -37,10 +37,10 @@ function ReadBookCard({book}) {
                     </div>
                 </div>
                 <hr />
-                <div>
-                    <button className="btn bg-blue-50 text-blue-500">Category {capitalizeFirstLetter(category)}</button>
-                    <button className="btn bg-orange-50 text-orange-500">Rating {rating}</button>
-                    <Link to={`/bookDetailsPage/${id}`}><button className="btn bg-green-500 text-white">View Details</button></Link>
+                <div className="pb-2 space-x-3">
+                    <button className="btn bg-blue-50 text-[#328EFF] text-base rounded-[30px]">Category {capitalizeFirstLetter(category)}</button>
+                    <button className="btn bg-orange-50 text-[#FFAC33] text-base rounded-[30px]">Rating {rating}</button>
+                    <Link to={`/bookDetailsPage/${id}`}><button className="btn bg-[#23BE0A] rounded-[30px] text-white text-lg font-medium">View Details</button></Link>
                 </div>
             </div>
         </div>

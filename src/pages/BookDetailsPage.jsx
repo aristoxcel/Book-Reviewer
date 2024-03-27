@@ -30,23 +30,23 @@ function BookDetailsPage() {
    
   return (
     <div>
-        <div className="container mx-auto grid md:grid-cols-2 bg-base-100 shadow-xl">
-            <figure><img className="w-full" src={book.image} alt="Movie"/></figure>
+        <div className="container mx-auto grid md:grid-cols-2 bg-base-100  mt-8">
+            <figure className="p-8"><img className="w-4/5  shadow-xl rounded-xl" src={book.image} alt="Movie"/></figure>
             <div className="card-body">
-                <h1 className="card-title text-4xl font-bold">{book.book_name}</h1>
-                <h3 className="text-2xl font-semibold text-gray-600">By : {book.author}</h3>
+                <h1 className="card-title text-[40px] font-bold playfair mb-4">{book.book_name}</h1>
+                <h3 className="text-2xl font-medium text-gray-600 mb-4">By : {book.author}</h3>
                 <hr />
-                <h3 className="text-2xl font-bold text-gray-600">{capitalizeFirstLetter(book.category)}</h3>
+                <h3 className="text-2xl font-medium text-gray-600 my-3">{capitalizeFirstLetter(book.category)}</h3>
                 <hr />
-                <p><span className="text-xl font-bold">Review :</span>{book.review}</p>
+                <p className="text-base leading-7"><span className=" font-bold">Review : </span>{book.review}</p>
                 <div className="flex gap-2 lg:gap-6 justify-start items-center">
-                    <h2>Tag</h2>
-                    <button className="btn bg-green-50 text-green-500 rounded-3xl">{book.tags[0]}</button>
-                    <button className="btn bg-green-50 text-green-500 rounded-3xl">{book.tags[1]}</button>
+                    <h2 className="text-base font-bold">Tag</h2>
+                    <button className="btn bg-green-50 text-[#23BE0A] rounded-[30px] h-1 px-4 font-semibold text-base">#{book.tags[0]}</button>
+                    <button className="btn bg-green-50 text-[#23BE0A] rounded-[30px] h-1 px-4 font-semibold text-base">#{book.tags[1]}</button>
                 </div>
                 <hr />
-                <table>
-                    <tbody>
+                <table className="space-y-5">
+                    <tbody className="text-base">
                         <tr>
                             <td>Number of Pages:</td>
                             <td className="font-bold">{book.total_pages}</td>
@@ -65,9 +65,9 @@ function BookDetailsPage() {
                         </tr>
                     </tbody>
                 </table>
-                <div>
-                   <button  onClick={handleRead} className="btn mr-4 ">Read</button>
-                    <button onClick={handleWish} className="btn bg-sky-400 ">Wishlist</button>
+                <div className="mt-4">
+                   <button  onClick={handleRead} className="btn mr-4 text-lg font-semibold">Read</button>
+                    <button onClick={handleWish} className="btn bg-sky-400 text-white text-lg font-semibold">Wishlist</button>
 
                 </div>
             </div>
